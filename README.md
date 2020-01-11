@@ -14,8 +14,8 @@ File contains sorting algorithms.
 
 1. start from second element of the list
 1. compare with other elements backwards
-  1. if you found smaller elements after greater elements, position your element after it
-  1. if you found all items are smaller than yours, keep it in its current position
+  - if you found smaller elements after greater elements, position your element after it
+  - if you found all items are smaller than yours, keep it in its current position
 1. do this process for every element from second to last
 
 Insertion sort is inefficient algorithm when input size and complexity goes greater.
@@ -33,8 +33,8 @@ This is simply reversed *insertion_sort*, I did not implement it separately yet.
 
 1. divide list by two until obtain 1-sized lists
 1. merge two arrays recursively to obtain sorted list
-  1. compare first elements of array
-  1. take smaller element and continue comparison with next element for that array whose element is used.
+  - compare first elements of array
+  - take smaller element and continue comparison with next element for that array whose element is used.
 
 **best case = average case = worst case**
 **time complexity:** O(n*lg*n)
