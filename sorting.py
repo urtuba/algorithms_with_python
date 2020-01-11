@@ -57,5 +57,48 @@ def merge(left, right):
         merged.extend(right[rightIdx:])
     else:
         merged.extend(left[leftIdx:])
-
     return merged
+
+def quick_sort(array):
+    """
+    SORTING FUNC USING QUICK SORT ALGORITHM
+    ARG array = LIST(ARRAY) of NUMBERS
+    """
+    if len(array) <= 1:
+        return array
+
+    from random import randint
+    smaller, equal, larger = [], [], []
+    pivot = array[randint(0, len(array)-1)]
+
+    for n in array:
+        if n < pivot:       smaller.append(n)
+        elif n == pivot:    equal.append(n)
+        else:               larger.append(n)
+
+    return quick_sort(smaller) + equal + quick_sort(larger)
+
+def counting_sort(array):
+    """
+    SORTING FUNCTION USING COUNTING SORT ALGORITHM
+    ARG array = LIST(ARRAY) OF NUMBERS
+    """
+    ## counter lists has elements for every
+    maximum = max(array)
+    counter = [0]*(maximum+1)
+
+    for i in range(len(array)):
+        counter[array[i]] += 1
+
+    for i in range(1, maximum + 1):
+        counter[i] = counter[i] + counter[i-1]
+
+    #print_array(counter)
+
+    result = [0]*len(array)
+
+    for i in range(len(array)):
+        result[counter[array[i]] -1] = array[i]
+        counter[array[i]] -= 1
+
+    return result
