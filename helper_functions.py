@@ -1,8 +1,8 @@
 """
 GITHUB: URTUBA
 AUTHOR: SAMED KAHYAOGLU
-..DATE: 08.01.2019
 """
+
 
 def random_array(size = 20, max = 0):
     """
@@ -39,9 +39,10 @@ def test_algorithm(func, size=20, max=0):
     ARG size = SIZE OF INPUT
     ARG max = MAX INPUT VALUE
     """
+    import sorting
     import timeit
     ## ARRAY CREATION
-    a = create_array(size, max)
+    a = random_array(size, max)
     print("INPUT ARRAY:")
     print_array(a)
     print("\n")
@@ -49,7 +50,7 @@ def test_algorithm(func, size=20, max=0):
     ## EXECUTION
     start = timeit.default_timer()
     test = """
-a = {}(a)
+a = sorting.{}(a)
 print('OUTPUT ARRAY:')
 print_array(a)
     """.format(func)
