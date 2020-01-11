@@ -21,8 +21,11 @@ File contains sorting algorithms.
 Insertion sort is inefficient algorithm when input size and complexity goes greater.
 
 **best case:** ordered list
+
 **worst case:** reverse ordered list
+
 **time complexity:** O(n<sup>2</sup>)
+
 **space complexity:** O(1)
 
 ### reverse_insertion_sort
@@ -37,8 +40,34 @@ This is simply reversed *insertion_sort*, I did not implement it separately yet.
   - take smaller element and continue comparison with next element for that array whose element is used.
 
 **best case = average case = worst case**
+
+**time complexity:** O(n*lg* n)
+
+**space complexity:** O(1)
+
+
+### quick_sort
+
+1. select a pivot
+1. divide list into three subtrees as equal to pivot, greater than pivot, smaller than pivot
+1. do this process recursively for greater and smaller lists that created until 1-sized lists.
+
 **time complexity:** O(n*lg*n)
+
+**space complexity:** O(1)
+
+
+
+### counting_sort
+1. create an counter array from 0 to max(array)
+1. count each element in list in corresponding index of counter array
+1. apply cummulative summation to the counter array
+1. now counter array shows us new positions of elements in original list, create original list.
+
+**time complexity:** O(n)
+
 **space complexity:** O(n)
+
 
 ## helper_functions.py
 

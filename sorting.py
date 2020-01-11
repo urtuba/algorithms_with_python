@@ -96,9 +96,43 @@ def counting_sort(array):
     #print_array(counter)
 
     result = [0]*len(array)
-
     for i in range(len(array)):
         result[counter[array[i]] -1] = array[i]
         counter[array[i]] -= 1
 
     return result
+
+def count_sort(array, exp):
+    """
+    SUBFUNCTION OF RADIX SORT
+    ARG array = LIST OF NUMBERS
+    ARG exp = WHICH EXPOTENTIAL WILL BE USED FOR COUNTING
+    """
+    ## array of remeinders
+    expArray = list(array)
+    for i in range(len(array)):
+        expArray[i] = array[i] % (10**exp)
+    maximum = max(expArray)
+    counter = [0] * (maximum+1)
+
+    ## standard counting sort process
+    for i in range(len(expArray)):
+        counter[expArray[i]] += 1
+    for i in range(1, maximum+1):
+        counter[i] = counter[i] + counter[i-1]
+
+    result = [0]*len(expArray)
+    for i in range(len(array)):
+        result[counter[expArray[i]] - 1] = array[i]
+        counter[expArray[i]] -= 1
+    return result
+
+
+def radix_sort(array):
+    from math import log10, ceil
+    maximum = max(array)
+    max_exp = ceil(log10(maximum))
+    ## calling for each exp
+    for i in range(1,max_exp+1):
+        array = count_sort(array, i)
+    return array
